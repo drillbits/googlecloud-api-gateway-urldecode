@@ -1,0 +1,18 @@
+type: google.api.Service
+config_version: 3
+
+name: "*.apigateway.YOUR_GOOGLE_PROJECT.cloud.goog"
+
+title: Echo API
+apis:
+  - name: apigateway.urldecode.echo.Echo
+
+backend:
+  rules:
+    - selector: "*"
+      address: grpcs://YOUR_BACKEND_APP_HASH.a.run.app
+
+usage:
+  rules:
+    - selector: "*"
+      allow_unregistered_calls: true
